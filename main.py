@@ -146,6 +146,16 @@ def display_report(results):
 
         print(f"{supplier}: {quantity}")
 
+    highest_defect_plant = results["plant_defects"].most_common(1)
+
+    print("\nHighest Defect Plant:")
+
+    print(
+        highest_defect_plant[0][0],
+        "with",
+        highest_defect_plant[0][1],
+        "defects"
+    )
 
 # --------------------------------------------------
 # 6. Main application
