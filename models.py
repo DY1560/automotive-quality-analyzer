@@ -1,34 +1,61 @@
+from dataclasses import dataclass
+
+
+@dataclass
 class AutomotiveQualityRecord:
 
-    # Constructor
-    def __init__(
-        self,
-        plant,
-        component,
-        supplier,
-        defect,
-        quantity
-    ):
+    plant: str
 
-        self.plant = plant
+    component: str
 
-        self.component = component
+    supplier: str
 
-        self.supplier = supplier
+    defect: str
 
-        self.defect = defect
+    quantity: int
 
-        self.quantity = quantity
+    def validate(self):
 
-    # Method
+        errors = []
+
+        # -----------------------------------------
+        # Mandatory field validation
+        # -----------------------------------------
+
+        if not self.plant.strip():
+
+            errors.append("Plant is mandatory")
+
+        if not self.component.strip():
+
+            errors.append("Component is mandatory")
+
+        if not self.supplier.strip():
+
+            errors.append("Supplier is mandatory")
+
+        if not self.defect.strip():
+
+            errors.append("Defect is mandatory")
+
+        # -----------------------------------------
+        # Quantity validation
+        # -----------------------------------------
+
+        if not isinstance(self.quantity, int):
+
+            errors.append("Quantity must be an integer")
+
+        elif self.quantity < 0:
+
+            errors.append("Quantity cannot be negative")
+
+        return errors
+
+    def calculate_defect_cost(self, cost_per_defect):
+
+        return self.quantity * cost_per_defect
+
     def display_record(self):
 
-        print("Plant:", self.plant)
-
-        print("Component:", self.component)
-
-        print("Supplier:", self.supplier)
-
-        print("Defect:", self.defect)
-
-        print("Quantity:", self.quantity)
+        print(self)
