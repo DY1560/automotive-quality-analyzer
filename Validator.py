@@ -40,6 +40,10 @@ def validate_record(record):
             if quantity < 0:
 
                 errors.append("Quantity cannot be negative")
+            
+            if quantity >1000:
+                
+                errors.append("Unusually High Defect Quantity Detected")
 
         except (ValueError, TypeError):
 

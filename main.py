@@ -1,6 +1,7 @@
 import csv
 from pathlib import Path
 from collections import Counter
+from logger_config import logger
 
 # --------------------------------------------------
 # 1. Define project paths
@@ -163,13 +164,19 @@ def display_report(results):
 
 def main():
 
+    logger.info("Automotive Quality Analyzer Started")
+
     create_sample_data()
 
     records = load_quality_data()
 
+    logger.info("Quality data loaded successfully")
+
     results = analyze_quality(records)
 
     display_report(results)
+
+    logger.info("Quality analysis completed")
 
 
 if __name__ == "__main__":
