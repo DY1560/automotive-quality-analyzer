@@ -2,6 +2,7 @@ import csv
 from pathlib import Path
 from collections import Counter
 from logger_config import logger
+from models import AutomotiveQualityRecord
 
 # --------------------------------------------------
 # 1. Define project paths
@@ -40,6 +41,34 @@ def create_sample_data():
 
     print("Sample quality data created successfully!")
 
+def demonstrate_quality_model():
+
+    record = AutomotiveQualityRecord(
+        plant="Plant_A",
+        component="Brake_Disc",
+        supplier="Supplier_01",
+        defect="Crack",
+        quantity=15
+    )
+
+    errors = record.validate()
+
+    if errors:
+
+        logger.warning(
+            "Invalid quality record: %s",
+            errors
+        )
+
+    else:
+
+        logger.info("Quality record validated successfully")
+
+        record.display_record()
+
+        cost = record.calculate_defect_cost(250)
+
+        print("Estimated defect cost:", cost)
 
 # --------------------------------------------------
 # 3. Load quality data
@@ -177,6 +206,8 @@ def main():
     display_report(results)
 
     logger.info("Quality analysis completed")
+
+    demonstrate_quality_model()
 
 
 if __name__ == "__main__":
