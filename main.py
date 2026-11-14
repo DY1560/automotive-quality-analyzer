@@ -94,6 +94,72 @@ def load_quality_data():
 # --------------------------------------------------
 # 4. Analyze quality data
 # --------------------------------------------------
+from analysis import (
+    find_high_defect_records,
+    sort_records_by_quantity,
+    calculate_supplier_defects,
+    find_critical_suppliers
+)
+
+def demonstrate_quality_analysis(records):
+
+    print("\n" + "=" * 50)
+    print("AUTOMOTIVE QUALITY INVESTIGATION")
+    print("=" * 50)
+
+    # 1. High defect records
+
+    high_defects = find_high_defect_records(
+        records,
+        threshold=20
+    )
+
+    print("\nHIGH DEFECT RECORDS")
+
+    for record in high_defects:
+
+        print(
+            record["Component"],
+            record["Supplier"],
+            record["Quantity"]
+        )
+
+    # 2. Supplier defect aggregation
+
+    supplier_defects = calculate_supplier_defects(records)
+
+    print("\nSUPPLIER DEFECT SUMMARY")
+
+    for supplier, quantity in supplier_defects.items():
+
+        print(supplier, quantity)
+
+    # 3. Critical suppliers
+
+    critical_suppliers = find_critical_suppliers(
+        records,
+        threshold=30
+    )
+
+    print("\nCRITICAL SUPPLIERS")
+
+    for supplier, quantity in critical_suppliers.items():
+
+        print(supplier, quantity)
+
+    # 4. Top defect records
+
+    sorted_records = sort_records_by_quantity(records)
+
+    print("\nTOP 3 DEFECT RECORDS")
+
+    for record in sorted_records[:3]:
+
+        print(
+            record["Component"],
+            record["Defect"],
+            record["Quantity"]
+        )
 
 def analyze_quality(records):
 
@@ -208,6 +274,8 @@ def main():
     logger.info("Quality analysis completed")
 
     demonstrate_quality_model()
+
+    demonstrate_quality_analysis(records)
 
 
 if __name__ == "__main__":
