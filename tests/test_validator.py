@@ -5,7 +5,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from validator import validate_record
+from automotive_quality.validator import validate_record
 
 
 def test_valid_quality_record():

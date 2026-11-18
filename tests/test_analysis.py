@@ -1,16 +1,8 @@
-import sys
-from pathlib import Path
-
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-sys.path.insert(0, str(PROJECT_ROOT / "src"))
-
-from analysis import (
-    find_high_defect_records,
-    sort_records_by_quantity,
-    calculate_supplier_defects,
-    find_critical_suppliers
-)
+from automotive_quality.validator import validate_record
+from automotive_quality.analysis import find_high_defect_records
+from automotive_quality.analysis import sort_records_by_quantity
+from automotive_quality.analysis import calculate_supplier_defects
+from automotive_quality.analysis import find_critical_suppliers
 
 
 def sample_records():
