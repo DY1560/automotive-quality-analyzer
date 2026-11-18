@@ -1,0 +1,16 @@
+pyproject.toml
+src/automotive_quality/analysis.py
+src/automotive_quality/init.py
+src/automotive_quality/logger_config.py
+src/automotive_quality/main.py
+src/automotive_quality/models.py
+src/automotive_quality/validator.py
+src/automotive_quality_analyzer.egg-info/PKG-INFO
+src/automotive_quality_analyzer.egg-info/SOURCES.txt
+src/automotive_quality_analyzer.egg-info/dependency_links.txt
+src/automotive_quality_analyzer.egg-info/top_level.txt
+tests/test_analysis.py
+tests/test_models.py
+tests/test_models_manual.py
+tests/test_validator.py
+tests/test_validator_manual.py

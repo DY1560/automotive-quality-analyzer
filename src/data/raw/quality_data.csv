@@ -1,0 +1,9 @@
+Plant,Component,Defect,Supplier,Quantity
+Plant_A,Brake_Disc,Crack,Supplier_01,15
+Plant_A,Brake_Disc,Surface_Defect,Supplier_01,10
+Plant_B,Steering_Rack,Leakage,Supplier_02,25
+Plant_B,Steering_Rack,Leakage,Supplier_02,10
+Plant_C,Brake_Disc,Crack,Supplier_03,20
+Plant_A,Suspension,Dimension_Error,Supplier_01,12
+Plant_C,Suspension,Dimension_Error,Supplier_03,8
+Plant_B,Brake_Disc,Surface_Defect,Supplier_02,18
